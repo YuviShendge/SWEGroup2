@@ -1,45 +1,48 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import axios from 'axios';
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 function Signup() {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState(null);
-    const navigate = useNavigate()
+    const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Validation
+
         if (!name || !email || !password) {
             setError("All fields are required.");
             return;
         }
 
-        // Clear previous errors
         setError(null);
+        setLoading(true);
 
-        // Sending data to the backend
-        axios.post('http://localhost:3002/register', { name, email, password })
-            .then(result => {
-                console.log(result);
-                navigate('/register')
-                // Redirect or notify user upon successful registration
-            })
-            .catch(err => {
-                console.log(err);
-                setError("Something went wrong. Please try again.");
-            });
+        try {
+            const response = await axios.post("http://localhost:3002/register", { name, email, password });
+
+            if (response.data.success) {
+                console.log("Registration successful:", response.data);
+                navigate("/login"); // Redirect to login after successful signup
+            } else {
+                setError(response.data.message || "Registration failed.");
+            }
+        } catch (err) {
+            console.error(err);
+            setError(err.response?.data?.message || "Something went wrong. Please try again.");
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
         <div className="d-flex justify-content-center align-items-center bg-secondary vh-100">
-            <div className="bg-white p-3 rounded w-25">
-                <h2>Register</h2>
+            <div className="bg-white p-4 rounded w-25 shadow">
+                <h2 className="text-center">Register</h2>
 
-                {/* Show error if any */}
                 {error && <div className="alert alert-danger">{error}</div>}
 
                 <form onSubmit={handleSubmit}>
@@ -89,14 +92,18 @@ function Signup() {
                         />
                     </div>
 
-                    <button type="submit" className="btn btn-success w-100 rounded-0">
-                        Register
+                    <button 
+                        type="submit" 
+                        className="btn btn-success w-100 rounded-0"
+                        disabled={loading}
+                    >
+                        {loading ? "Registering..." : "Register"}
                     </button>
                 </form>
 
-                <p>Already Have an Account?</p>
+                <p className="mt-3 text-center">Already have an account?</p>
 
-                <Link to='/login' className="btn btn-default border w-100 bg-light rounded-0 text-decoration-none">
+                <Link to='/login' className="btn btn-light border w-100 rounded-0 text-decoration-none text-center">
                     Login
                 </Link>
             </div>
