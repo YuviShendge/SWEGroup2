@@ -6,9 +6,10 @@ function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         
         if (!email || !password) {
@@ -17,29 +18,30 @@ function Login() {
         }
     
         setError(null);
+        setLoading(true);
     
-        axios.post("http://localhost:3002/login", { email, password })
-            .then(result => {
-                console.log(result.data);
-                if (result.data.message === "Success") {
-                    navigate("/home");
-                } else {
-                    setError(result.data.message); // Display server error messages
-                }
-            })
-            .catch(err => {
-                console.log(err);
-                setError("Invalid credentials. Please try again.");
-            });
+        try {
+            const response = await axios.post("http://localhost:3002/login", { email, password });
+
+            if (response.data.message === "Success") {
+                console.log(response.data);
+                navigate("/home");
+            } else {
+                setError(response.data.message || "Login failed.");
+            }
+        } catch (err) {
+            console.error(err);
+            setError("Invalid credentials. Please try again.");
+        } finally {
+            setLoading(false);
+        }
     };
-    
 
     return (
         <div className="d-flex justify-content-center align-items-center bg-secondary vh-100">
-            <div className="bg-white p-3 rounded w-25">
-                <h2>Login</h2>
+            <div className="bg-white p-4 rounded w-25 shadow">
+                <h2 className="text-center">Login</h2>
                 
-                {/* Show error if any */}
                 {error && <div className="alert alert-danger">{error}</div>}
                 
                 <form onSubmit={handleSubmit}>
@@ -74,13 +76,17 @@ function Login() {
                         />
                     </div>
                     
-                    <button type="submit" className="btn btn-primary w-100 rounded-0">
-                        Login
+                    <button 
+                        type="submit" 
+                        className="btn btn-primary w-100 rounded-0"
+                        disabled={loading}
+                    >
+                        {loading ? "Logging in..." : "Login"}
                     </button>
                 </form>
                 
-                <p>Don't have an account?</p>
-                <Link to='/signup' className="btn btn-default border w-100 bg-light rounded-0 text-decoration-none">
+                <p className="mt-3 text-center">Don't have an account?</p>
+                <Link to='/register' className="btn btn-light border w-100 rounded-0 text-decoration-none text-center">
                     Register
                 </Link>
             </div>
