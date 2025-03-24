@@ -1,0 +1,92 @@
+body {
+    background-color: #F2ECE5; /* Light beige background */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Center content */
+    height: 100vh;
+    margin: 0;
+}
+
+/* Navbar styles */
+.navbar-container {
+    background-color: #f4a6a6; /* Soft pink background */
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center links */
+    width: 100%;
+    gap: 20px; /* Space between links */
+    
+    position: fixed; /* Fix navbar to the top */
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+.navbar-container a {
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+.navbar-container a:hover {
+    background-color: #ffcccc;
+}
+
+/* Search bar styles */
+.search-container {
+    background-color: #f4a6a6; /* Soft pink background */
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 60%;
+    max-width: 600px; /* Prevents it from stretching too much */
+
+    position: fixed;
+    top: 80px; /* Adds space below the navbar */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 30;
+} 
+
+label {
+    font-weight: bold;
+    font-style: italic;
+    color: black;
+    font-size: 18px;
+}
+
+input {
+    flex: 1;
+    padding: 8px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    background-color: #fef9f4; /* Light cream */
+}
+
+
+.filter-options {
+    background-color: #f4a6a6; /* Soft pink background */
+    border-radius: 5px;
+    padding: 15px; 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align items to the left */
+    gap: 10px;
+    position: fixed;
+    top: 150px; /* Adjust as needed */
+    left: 5px;
+    height: 320px; /* Full height minus space for navbar and search bar */
+    width: 200px; /* Adjust width as needed */
+    overflow-y: auto; /* Scroll if content overflows */
+    z-index: 20;
+    align-items: center;
+    justify-content: flex-start; /* Shift contents upwards */
+}
