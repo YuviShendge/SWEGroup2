@@ -8,7 +8,7 @@ const Home = () => {
   return (
     <div>
       <header>
-        <div className="search-container">
+        <div className="search-containerW">
           <span className="search-icon">🔍</span>
           <input type="text" placeholder="Search" />
         </div>
