@@ -2,9 +2,7 @@ body {
     background-color: #F2ECE5; /* Light beige background */
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center; /* Center content */
-    height: 100vh;
+    min-height: 100vh; /* Changed from height: 100vh */
     margin: 0;
 }
 
@@ -89,4 +87,13 @@ input {
     z-index: 20;
     align-items: center;
     justify-content: flex-start; /* Shift contents upwards */
+}
+
+/* Example of a wrapper for main content */
+.main-content-wrapper {
+    margin-top: 150px; /* Adjust to the combined height of the navbar and search bar */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
