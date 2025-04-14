@@ -13,14 +13,14 @@ const Search = () => {
       </div>
 
       <div className="search-containerS">
-        <labelS htmlFor="search"><strong>Search</strong></labelS>
-        <inputS type="text" id="search" placeholder="Type here..." />
+        <label htmlFor="search"><strong>Search</strong></label>
+        <input type="text" id="search" placeholder="Type here..." />
       </div>
 
       <div className="filter-options">
         <h2>Filter Options</h2>
 
-        <labelS htmlFor="skinType"><strong>Skin Type</strong></labelS>
+        <label htmlFor="skinType"><strong>Skin Type</strong></label>
         <select id="skinType">
           <option value="all">All</option>
           <option value="oily">Oily</option>
@@ -28,7 +28,7 @@ const Search = () => {
           <option value="mix">Mix</option>
         </select>
 
-        <labelS htmlFor="color"><strong>Color</strong></labelS>
+        <label htmlFor="color"><strong>Color</strong></label>
         <select id="color">
           <option value="all">All</option>
           <option value="red">Red</option>
@@ -36,7 +36,7 @@ const Search = () => {
           <option value="blue">Blue</option>
         </select>
 
-        <labelS htmlFor="brand"><strong>Brand</strong></labelS>
+        <label htmlFor="brand"><strong>Brand</strong></label>
         <select id="brand">
           <option value="all">All</option>
           <option value="nars">NARS</option>
@@ -44,7 +44,7 @@ const Search = () => {
           <option value="nyx">NYX</option>
         </select>
 
-        <labelS htmlFor="price"><strong>Price</strong></labelS>
+        <label htmlFor="price"><strong>Price</strong></label>
         <select id="price">
           <option value="all">All</option>
           <option value="low">$</option>
