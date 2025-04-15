@@ -2,7 +2,7 @@ body {
     background-color: #ffe5a4; /* Light yellow */
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Changed from height: 100vh */
+    min-height: 100vh;
     margin: 0;
 }
 
@@ -12,11 +12,10 @@ body {
     padding: 15px;
     display: flex;
     align-items: center;
-    justify-content: center; /* Center links */
+    justify-content: center;
     width: 100%;
-    gap: 20px; /* Space between links */
-    
-    position: fixed; /* Fix navbar to the top */
+    gap: 20px;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: 10;
@@ -36,7 +35,7 @@ body {
 
 /* Search bar styles */
 .search-containerS {
-    background-color: #f4a6a6; /* Soft pink background */
+    background-color: #f4a6a6;
     padding: 15px;
     border-radius: 10px;
     display: flex;
@@ -44,55 +43,52 @@ body {
     justify-content: center;
     gap: 10px;
     width: 60%;
-    max-width: 600px; /* Prevents it from stretching too much */
-
+    max-width: 600px;
     position: fixed;
-    top: 80px; /* Adds space below the navbar */
+    top: 80px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 30;
-} 
+}
 
-labelS {
+label {
     font-weight: bold;
     font-style: italic;
     color: black;
     font-size: 18px;
 }
 
-inputS {
+input {
     flex: 1;
     padding: 8px;
     border-radius: 20px;
     border: none;
     outline: none;
-    z-index: 1;
-    background-color: #fef9f4; /* Light cream */
+    background-color: #fef9f4;
 }
 
-
+/* Filter section */
 .filter-options {
-    background-color: #f4a6a6; /* Soft pink background */
+    background-color: #f4a6a6;
     border-radius: 5px;
-    padding: 15px; 
+    padding: 15px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Align items to the left */
     gap: 10px;
     position: fixed;
-    top: 150px; /* Adjust as needed */
+    top: 150px;
     left: 5px;
-    height: 320px; /* Full height minus space for navbar and search bar */
-    width: 200px; /* Adjust width as needed */
-    overflow-y: auto; /* Scroll if content overflows */
+    height: 320px;
+    width: 200px;
+    overflow-y: auto;
     z-index: 20;
     align-items: center;
-    justify-content: flex-start; /* Shift contents upwards */
+    justify-content: flex-start;
 }
 
-/* Example of a wrapper for main content */
+/* Optional content wrapper */
 .main-content-wrapper {
-    margin-top: 150px; /* Adjust to the combined height of the navbar and search bar */
+    margin-top: 150px;
     width: 100%;
     display: flex;
     flex-direction: column;
