@@ -12,8 +12,8 @@ const Home = () => {
           <span className="search-icon">🔍</span>
           <input type="text" placeholder="Search" />
         </div>
-        <a href="#" className="korean">Color Match</a>
-        <a href="#" className="products">Products</a>
+        <Link to="/search" className="korean">Filter</Link>
+        <Link to="/products" className="products">Products</Link>
         <Link to="/login" className="login">Register/Login</Link> {/* Updated Link */}
       </header>
 
