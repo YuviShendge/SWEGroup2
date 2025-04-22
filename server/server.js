@@ -1,16 +1,15 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const MakeupModel = require('./models/makeup'); // adjust if your path is different
+const MakeupModel = require('./models/makeup');
 
 const app = express();
 const PORT = 3002;
 
-// Middleware
+
 app.use(cors());
 app.use(express.json());
 
-// Connect to MongoDB
 mongoose.connect('mongodb://127.0.0.1:27017/makeupDB', {
   useNewUrlParser: true,
   useUnifiedTopology: true
@@ -18,10 +17,10 @@ mongoose.connect('mongodb://127.0.0.1:27017/makeupDB', {
 .then(() => console.log(' Connected to MongoDB'))
 .catch(err => console.error(' MongoDB connection error:', err));
 
-// API endpoint to return all products
+
 // app.get('/products', async (req, res) => {
 //   try {
-//     const products = await MakeupModel.find(); // return all products
+//     const products = await MakeupModel.find(); 
 //     res.json(products);
 //   } catch (err) {
 //     res.status(500).json({ error: err.message });
@@ -32,11 +31,11 @@ app.get('/products', async (req, res) => {
     console.log("🔍 Attempting to fetch products...");
 
     const products = await MakeupModel.find();
-    console.log("✅ Products fetched:", products);
+    console.log("Products fetched:", products);
 
     res.json(products);
   } catch (err) {
-    console.error("❌ Error in /products route:", err);  // 🛑 THIS will catch the 500 error cause
+    console.error("Error in /products route:", err);  
     res.status(500).json({ error: err.message });
   }
 });

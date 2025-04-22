@@ -11,7 +11,8 @@ const Search = () => {
     skinType: "all",
     color: "all",
     brand: "all",
-    price: "all"
+    price: "all",
+    productType: "all"
   });
 
   useEffect(() => {
@@ -43,6 +44,12 @@ const Search = () => {
       );
     }
 
+    if (filters.productType !== "all") {
+      results = results.filter(product =>
+        product.product_type?.toLowerCase().includes(filters.productType.toLowerCase())
+      );
+    }
+
     if (filters.price !== "all") {
       switch (filters.price) {
         case "low":
@@ -69,6 +76,13 @@ const Search = () => {
       [name]: value
     }));
   };
+  const handleAddToCart = (product) => {
+    const currentCart = JSON.parse(localStorage.getItem("cart")) || [];
+    const updatedCart = [...currentCart, product];
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+    alert(`${product.name} added to cart!`);
+  };
+  
 
   return (
     <div className="search-page">
@@ -91,7 +105,7 @@ const Search = () => {
         />
       </div>
 
-      <div className="filter-options">
+      {/* <div className="filter-options">
         <h2>Filter Options</h2>
         
         <label htmlFor="skinType"><strong>Skin Type</strong></label>
@@ -128,7 +142,54 @@ const Search = () => {
           <option value="medium">$$ ($15 - $30)</option>
           <option value="high">$$$ (Over $30)</option>
         </select>
-      </div>
+      </div> */}
+      <div className="filter-options">
+  {/* <h2>Filter</h2> */}
+
+  <label htmlFor="searchTerm"><strong>FILTER</strong></label>
+  {/* <input
+    type="text"
+    id="searchTerm"
+    name="searchTerm"
+    value={filters.searchTerm}
+    placeholder="Search products..."
+    onChange={handleFilterChange}
+  /> */}
+
+  <label htmlFor="brand"><strong>Brand</strong></label>
+  <select id="brand" name="brand" value={filters.brand} onChange={handleFilterChange}>
+    <option value="all">All</option>
+    <option value="boosh">boosh</option>
+    <option value="nyx">NYX</option>
+    <option value="deciem">deciem</option>
+    <option value="zorah biocosmetiques">zorah biocosmetiques	</option>
+    <option value="colourpop">ColourPop</option>
+    <option value="sally b's skin yummies">sally b's skin yummies</option>
+
+  </select>
+
+  <label htmlFor="price"><strong>Price</strong></label>
+  <select id="price" name="price" value={filters.price} onChange={handleFilterChange}>
+    <option value="all">All</option>
+    <option value="low">Low (under $15)</option>
+    <option value="medium">Medium ($15 - $30)</option>
+    <option value="high">High (over $30)</option>
+  </select>
+
+  
+  <label htmlFor="productType"><strong>Type</strong></label>
+<select id="productType" name="productType" value={filters.productType} onChange={handleFilterChange}>
+  <option value="all">All</option>
+  <option value="foundation">Foundation</option>
+  <option value="lip">Lip</option>
+  <option value="eye">Eye</option>
+  <option value="blush">Blush</option>
+  <option value="mascara">Mascara</option>
+  <option value="eyeliner">Eyeliner</option>
+</select>
+
+</div>
+
 
       <div className="table-container">
         <h3 className="results-title">Results ({filteredProducts.length})</h3>
@@ -155,7 +216,12 @@ const Search = () => {
                       <img src={product.api_featured_image} alt={product.name} className="product-image" />
                     )}
                   </td>
+                  <td>
+                    <button onClick={() => handleAddToCart(product)}>Add to Cart</button>
+                  </td>
+
                 </tr>
+                
               ))}
             </tbody>
           </table>
