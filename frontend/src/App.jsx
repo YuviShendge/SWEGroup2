@@ -5,6 +5,7 @@ import Login from './Login';
 import Home from './Home'; 
 import Search from './Search'; 
 import Products from './Products';
+import Shop from './shop';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
          <Route path='/home' element={<Home />} />  
         <Route path='/search' element={<Search />} /> 
         <Route path='/products' element={<Products/>} /> 
+        <Route path='/shop' element={<Shop/>} /> 
       </Routes>
     </BrowserRouter>
   );
