@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import "./Search_style.css";
 
 const Search = () => {
@@ -8,23 +8,21 @@ const Search = () => {
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [filters, setFilters] = useState({
     searchTerm: "",
-    skinType: "all",
-    color: "all",
     brand: "all",
-    price: "all"
+    price: "all",
+    productType: "all"
   });
 
   useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await axios.get("http://localhost:3002/products");
-        setProducts(response.data);
-        setFilteredProducts(response.data);
-      } catch (error) {
-        console.error("Error fetching products:", error);
-      }
-    };
-    fetchProducts();
+    axios.get("http://localhost:3002/products")
+      .then((res) => {
+        console.log("Fetched products:", res.data);
+        setProducts(res.data);
+        setFilteredProducts(res.data); // initial view
+      })
+      .catch((err) => {
+        console.error("Error fetching products:", err);
+      });
   }, []);
 
   useEffect(() => {
@@ -40,6 +38,12 @@ const Search = () => {
     if (filters.brand !== "all") {
       results = results.filter(product =>
         product.brand.toLowerCase() === filters.brand.toLowerCase()
+      );
+    }
+
+    if (filters.productType !== "all") {
+      results = results.filter(product =>
+        product.product_type.toLowerCase() === filters.productType.toLowerCase()
       );
     }
 
@@ -93,21 +97,15 @@ const Search = () => {
 
       <div className="filter-options">
         <h2>Filter Options</h2>
-        
-        <label htmlFor="skinType"><strong>Skin Type</strong></label>
-        <select id="skinType" name="skinType" value={filters.skinType} onChange={handleFilterChange}>
-          <option value="all">All</option>
-          <option value="oily">Oily</option>
-          <option value="dry">Dry</option>
-          <option value="mix">Mix</option>
-        </select>
 
-        <label htmlFor="color"><strong>Color</strong></label>
-        <select id="color" name="color" value={filters.color} onChange={handleFilterChange}>
+        <label htmlFor="productType"><strong>Product Type</strong></label>
+        <select id="productType" name="productType" value={filters.productType} onChange={handleFilterChange}>
           <option value="all">All</option>
-          <option value="red">Red</option>
-          <option value="green">Green</option>
-          <option value="blue">Blue</option>
+          <option value="lipstick">Lipstick</option>
+          <option value="blush">Blush</option>
+          <option value="foundation">Foundation</option>
+          <option value="eyeliner">Eyeliner</option>
+          <option value="mascara">Mascara</option>
         </select>
 
         <label htmlFor="brand"><strong>Brand</strong></label>
@@ -118,7 +116,6 @@ const Search = () => {
           <option value="nyx">NYX</option>
           <option value="c'est moi">C'est moi</option>
           <option value="colourpop">Colourpop</option>
-
         </select>
 
         <label htmlFor="price"><strong>Price</strong></label>
@@ -138,6 +135,7 @@ const Search = () => {
               <tr>
                 <th>Brand</th>
                 <th>Name</th>
+                <th>Type</th>
                 <th>Price</th>
                 <th>Description</th>
                 <th>Image</th>
@@ -145,22 +143,25 @@ const Search = () => {
             </thead>
             <tbody>
               {filteredProducts.map(product => (
-                <tr key={product.id || product.name}>
+                <tr key={product._id || product.name}>
                   <td>{product.brand}</td>
                   <td>{product.name}</td>
+                  <td>{product.product_type}</td>
                   <td>${product.price?.toFixed(2)}</td>
-                  <td>{product.description?.substring(0, 50)}...</td>
+                  <td>{product.description?.slice(0, 50)}...</td>
                   <td>
-                    {product.api_featured_image && (
-                      <img src={product.api_featured_image} alt={product.name} className="product-image" />
-                    )}
+                    <img
+                      src={product.api_featured_image}
+                      alt={product.name}
+                      className="product-image"
+                    />
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
         ) : (
-          <p className="no-results">No products match your filters.</p>
+          <p className="no-results">No products found.</p>
         )}
       </div>
     </div>
