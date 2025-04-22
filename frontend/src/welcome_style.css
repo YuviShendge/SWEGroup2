@@ -50,7 +50,7 @@ input {
     z-index: 1;
 }
 /* Products */
-.products{
+.products {
     font-size: 16px;
     text-decoration: none;
     color: black;
@@ -59,163 +59,91 @@ input {
     margin-left: -25px;
 }
 /* Color Match */
-.korean{
+.korean {
     font-size: 16px;
     text-decoration: none;
     color: black;
     font-weight: bold;
     z-index: 1;
     margin-left: -160px;
-
 }
+
 /* Wavy Background */
 .pinkbg {
     position: relative;
     background: #f7a5a5;
     top: 0px;
-    height: 400px; /* Adjust height as needed */
-    border-radius: 0;  /* Creates a wavy effect */
+    height: 400px;
+    border-radius: 0;
 }
-.yellow_circ1 {
-/* Image Container */
+
+/* Yellow Circles (kept as is) */
+.yellow_circ1, .yellow_circ2, .yellow_circ3, .yellow_circ4,
+.yellow_circ5, .yellow_circ6, .yellow_circ7, .yellow_circ8, .yellow_circ9 {
     position: absolute;
-    top: -75px; /* Adjust to position over background */
+    top: -75px;
     left: 50%;
-    transform: translateX(-50%);
-    z-index: 0; /* Brings it to front */
-    width: 200px; /* Set width */
-    height: 200px; /* Set height (equal to width for a perfect circle) */
-    border-radius: 50%; /* Makes it a circle */
-    overflow: hidden; /* Ensures image stays inside the circular frame */
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
     background-color: #ffe5a4;
+    z-index: 0;
 }
-.yellow_circ2 {
-    /* Image Container */
-        position: absolute;
-        top: -75px; /* Adjust to position over background */
-        left: 50%;
-        transform: translateX(75px);
-        z-index: 0; /* Brings it to front */
-        width: 200px; /* Set width */
-        height: 200px; /* Set height (equal to width for a perfect circle) */
-        border-radius: 50%; /* Makes it a circle */
-        overflow: hidden; /* Ensures image stays inside the circular frame */
-        background-color: #ffe5a4;
-    }
-.yellow_circ3 {
-    /* Image Container */
-        position: absolute;
-        top: -75px; /* Adjust to position over background */
-        left: 50%;
-        transform: translateX(250px);
-        z-index: 0; /* Brings it to front */
-        width: 200px; /* Set width */
-        height: 200px; /* Set height (equal to width for a perfect circle) */
-        border-radius: 50%; /* Makes it a circle */
-        overflow: hidden; /* Ensures image stays inside the circular frame */
-        background-color: #ffe5a4;
-    }
-.yellow_circ4 {
-    /* Image Container */
-        position: absolute;
-        top: -75px; /* Adjust to position over background */
-        left: 50%;
-        transform: translateX(425px);
-        z-index: 0; /* Brings it to front */
-        width: 200px; /* Set width */
-        height: 200px; /* Set height (equal to width for a perfect circle) */
-        border-radius: 50%; /* Makes it a circle */
-        overflow: hidden; /* Ensures image stays inside the circular frame */
-        background-color: #ffe5a4;
-    }
-.yellow_circ5 {
-    /* Image Container */
-        position: absolute;
-        top: -75px; /* Adjust to position over background */
-        left: 50%;
-        transform: translateX(-275px);
-        z-index: 0; /* Brings it to front */
-        width: 200px; /* Set width */
-        height: 200px; /* Set height (equal to width for a perfect circle) */
-        border-radius: 50%; /* Makes it a circle */
-        overflow: hidden; /* Ensures image stays inside the circular frame */
-        background-color: #ffe5a4;
-    }
-.yellow_circ6 {
-    /* Image Container */
-        position: absolute;
-        top: -75px; /* Adjust to position over background */
-        left: 50%;
-        transform: translateX(-425px);
-        z-index: 0; /* Brings it to front */
-        width: 200px; /* Set width */
-        height: 200px; /* Set height (equal to width for a perfect circle) */
-        border-radius: 50%; /* Makes it a circle */
-        overflow: hidden; /* Ensures image stays inside the circular frame */
-        background-color: #ffe5a4;
-    }
-.yellow_circ7 {
-    /* Image Container */
-        position: absolute;
-        top: -75px; /* Adjust to position over background */
-        left: 50%;
-        transform: translateX(-600px);
-        z-index: 0; /* Brings it to front */
-        width: 200px; /* Set width */
-        height: 200px; /* Set height (equal to width for a perfect circle) */
-        border-radius: 50%; /* Makes it a circle */
-        overflow: hidden; /* Ensures image stays inside the circular frame */
-        background-color: #ffe5a4;
-    }
-.yellow_circ8 {
-    /* Image Container */
-        position: absolute;
-        top: -75px; /* Adjust to position over background */
-        left: 50%;
-        transform: translateX(600px);
-        z-index: 0; /* Brings it to front */
-        width: 200px; /* Set width */
-        height: 200px; /* Set height (equal to width for a perfect circle) */
-        border-radius: 50%; /* Makes it a circle */
-        overflow: hidden; /* Ensures image stays inside the circular frame */
-        background-color: #ffe5a4;
-    }
-.yellow_circ9 {
-    /* Image Container */
-        position: absolute;
-        top: -75px; /* Adjust to position over background */
-        left: 50%;
-        transform: translateX(-775px);
-        z-index: 0; /* Brings it to front */
-        width: 200px; /* Set width */
-        height: 200px; /* Set height (equal to width for a perfect circle) */
-        border-radius: 50%; /* Makes it a circle */
-        overflow: hidden; /* Ensures image stays inside the circular frame */
-        background-color: #ffe5a4;
-    }
+.yellow_circ1 { transform: translateX(-50%); }
+.yellow_circ2 { transform: translateX(75px); }
+.yellow_circ3 { transform: translateX(250px); }
+.yellow_circ4 { transform: translateX(425px); }
+.yellow_circ5 { transform: translateX(-275px); }
+.yellow_circ6 { transform: translateX(-425px); }
+.yellow_circ7 { transform: translateX(-600px); }
+.yellow_circ8 { transform: translateX(600px); }
+.yellow_circ9 { transform: translateX(-775px); }
+
+/* Image and Text Layout */
+.image-and-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* allows wrapping on smaller screens */
+    max-width: 1000px;
+    margin: -300px auto 50px auto; /* Negative top margin to shift up */
+    padding: 20px;
+    gap: 40px;
+    position: relative; /* Ensures content stays above the pinkbg */
+    z-index: 1; /* Keeps content above the wavy background */
+}
+
+/* Image container (now relative and not absolute) */
 .image-container {
-    position: absolute;
-    top: 160px; /* Adjust to move image up/down */
-    left: 50%;
-    transform: translateX(-110%); /* Center the image */
-    z-index: 1; /* Ensures image is above the background */
+    flex: 1 1 400px;
+    text-align: center;
 }
 
 /* Image */
 .main-image {
-    width: 450px;
+    width: 100%;
+    max-width: 450px;
     border-radius: 15px;
     box-shadow: 5px 5px 10px #000000;
 }
+
+/* Text box */
+.text-box {
+    flex: 1 1 400px;
+    background: white;
+    padding: 20px 30px;
+    border-radius: 15px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.15);
+    text-align: left;
+}
+
 .slay-frame{
-    position: absolute;
-    top: 10px; /* Adjust to move image up/down */
-    left: 45%;
-    transform: translateX(10%); /* Center the image */
-    z-index: 1; /* Ensures image is above the background */
-}
-.logo{
-    width: 100px;
-    border-radius: 15px;
-    box-shadow: 5px 5px 10px #000000;
-}
+     position: absolute; 
+     top: 10px; /* Adjust to move image up/down */ 
+     left: 45%; transform: translateX(10%); /* Center the image */ 
+     z-index: 1; /* Ensures image is above the background */ 
+} .logo { 
+    width: 100px; 
+    border-radius: 15px; 
+    box-shadow: 5px 5px 10px #000000; }
