@@ -103,6 +103,12 @@ input {
     display: flex;
     flex-direction: column;
   }
+  .product-image {
+    width: 100px;
+    height: auto;
+    object-fit: contain;
+  }
+  
   
   .table-container {
     margin: 20px auto;
