@@ -207,15 +207,54 @@ input {
     border-radius: 15px;
     box-shadow: 5px 5px 10px #000000;
 }
-.slay-frame{
+.slay-frame{ /* patrick */
     position: absolute;
     top: 10px; /* Adjust to move image up/down */
     left: 45%;
     transform: translateX(10%); /* Center the image */
     z-index: 1; /* Ensures image is above the background */
 }
+.slay-frame:hover{
+    transform: scale(1.05); /* Scale up the image on hover */
+    transition: transform 0.3s ease; /* Smooth transition */
+}
 .logo{
     width: 100px;
     border-radius: 15px;
     box-shadow: 5px 5px 10px #000000;
 }
+.cart-container { /* Mission statement */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 30px;
+    text-align: center;
+    z-index: 1;
+  }
+  .text-box {
+    max-width: 400px;
+    background-color: #fff8f0;
+    padding: 20px 25px;
+    border-radius: 12px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: left;
+  }
+  .text-box h2 {
+    margin-bottom: 12px;
+    color: #333;
+    font-size: 24px;
+  }
+  .text-box p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+  }
+  .image-and-text { /* Fillter group image */
+    position: absolute;
+    top: 15%; /* Adjust to move image up/down */
+    left: 45%;
+    transform: translateX(10%); /* Center the image */
+    z-index: 2; /* Ensures image is above the background */
+  }
+  
