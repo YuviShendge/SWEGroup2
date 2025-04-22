@@ -22,9 +22,20 @@ const Home = () => {
         <div key={index} className={`yellow_circ${index + 1}`}></div>
       ))}
 
-      <div className="image-container">
-        <img src={aadithiImg} alt="Friends Hugging" className="main-image" />
+        <div className="image-and-text">
+        <div className="image-container">
+          <img src={aadithiImg} alt="Friends Hugging" className="main-image" />
+        </div>
+        <div className="text-box">
+          <h2>Welcome to Our Site!</h2>
+          <p>
+            Our mission is to help you discover and share amazing products, stories,
+            and experiences. Whether you're browsing, searching, or contributing—
+            you're in the right place!
+          </p>
+        </div>
       </div>
+      
 
       <div className="slay-frame">
         <img src={patrickImg} alt="Patrick Star" className="logo" />
