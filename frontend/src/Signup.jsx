@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 function Signup() {
@@ -8,7 +8,6 @@ function Signup() {
     const [password, setPassword] = useState("");
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
-    const navigate = useNavigate();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -26,7 +25,8 @@ function Signup() {
 
             if (response.data.success) {
                 console.log("Registration successful:", response.data);
-                navigate("/login"); // Redirect to login after successful signup
+                // Use window.location for navigation instead of navigate
+                window.location.href = "/login";
             } else {
                 setError(response.data.message || "Registration failed.");
             }
