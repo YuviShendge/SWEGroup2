@@ -86,7 +86,6 @@ input {
     justify-content: flex-start;
 }
 
-/* Optional content wrapper */
 .main-content-wrapper {
     margin-top: 150px;
     width: 100%;
@@ -95,10 +94,9 @@ input {
     align-items: center;
 }
 
-/* Add these new styles to your existing Search_style.css */
 
 .search-page {
-    padding-top: 180px; /* Give space for fixed elements */
+    padding-top: 180px; 
     padding-bottom: 50px;
     display: flex;
     flex-direction: column;
@@ -115,7 +113,7 @@ input {
     align-self: center;
   }
   
-  /* Move filter options back to left */
+  
   .filter-options {
     background-color: #f4a6a6;
     border-radius: 5px;
@@ -125,21 +123,20 @@ input {
     gap: 10px;
     position: fixed;
     top: 150px;
-    left: 20px; /* Position on left side */
+    left: 20px; 
     height: 320px;
     width: 200px;
     overflow-y: auto;
     z-index: 20;
-    align-items: flex-start; /* Align left */
+    align-items: flex-start; 
   }
   
-  /* Adjust table position to account for filters */
+ 
   .results-container {
-    margin-left: 240px; /* Make space for filters */
+    margin-left: 240px; 
     padding-right: 20px;
   }
   
-  /* Keep the rest of your existing styles */
   .results-title {
     text-align: center;
     color: #333;
