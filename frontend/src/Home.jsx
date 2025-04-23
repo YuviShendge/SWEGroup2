@@ -31,7 +31,7 @@ const Home = () => {
           <img src={aadithiImg} alt="Friends Hugging" className="main-image" />
         </div>
         <div className="text-box">
-          <h2>Welcome {email}!</h2>
+          <h2>Welcome!</h2>
           <p>
             Our mission is to help you discover and share amazing products, stories,
             and experiences. Whether you're browsing, searching, or contributing—
