@@ -14,10 +14,13 @@ body {
 /* Header */
 header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* Spread items across full width */
   align-items: center;
   padding: 15px 40px;
+  background-color: #ffe5a4;
+  z-index: 5;
 }
+
 
 .search-container {
   display: flex;
@@ -26,13 +29,13 @@ header {
   padding: 10px 20px;
   border-radius: 30px;
   box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
-  z-index: 1;
+  z-index: 5;
 }
 
 .search-icon {
   font-size: 18px;
   margin-right: 5px;
-  z-index: 1;
+  z-index: 3;
 }
 
 input {
@@ -48,7 +51,7 @@ input {
   text-decoration: none;
   color: black;
   font-weight: bold;
-  z-index: 1;
+  z-index: 3;
 }
 
 /* Products */
@@ -57,7 +60,7 @@ input {
   text-decoration: none;
   color: black;
   font-weight: bold;
-  z-index: 1;
+  z-index: 3;
   margin-left: -25px;
 }
 
@@ -67,7 +70,7 @@ input {
   text-decoration: none;
   color: black;
   font-weight: bold;
-  z-index: 1;
+  z-index: 3;
   margin-left: -160px;
 }
 
@@ -78,20 +81,21 @@ input {
   top: 0px;
   height: 400px;
   border-radius: 0;
+  z-index: 1;
 }
 
 /* Yellow Circles */
 .yellow_circ1, .yellow_circ2, .yellow_circ3, .yellow_circ4,
 .yellow_circ5, .yellow_circ6, .yellow_circ7, .yellow_circ8, .yellow_circ9 {
   position: absolute;
-  top: -75px;
+  top: -25px;
   left: 50%;
   width: 200px;
   height: 200px;
   border-radius: 50%;
   overflow: hidden;
   background-color: #ffe5a4;
-  z-index: 0;
+  z-index: 1;
 }
 
 .yellow_circ1 { transform: translateX(-50%); }
@@ -109,8 +113,6 @@ input {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-wrap: wrap; /* allows wrapping on smaller screens */
-  max-width: 1000px;
   margin: -300px auto 50px auto; /* Negative top margin to shift up */
   padding: 20px;
   gap: 40px;
@@ -134,7 +136,7 @@ input {
 
 .slay-frame {
   position: absolute;
-  top: 10px; /* Adjust to move image up/down */
+  top: 40px; /* Adjust to move image up/down */
   left: 45%;
   transform: translateX(10%); /* Center the image */
   z-index: 1; /* Ensures image is above the background */
