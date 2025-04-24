@@ -71,19 +71,18 @@ input {
 .filter-options {
   background-color: #f4a6a6;
   border-radius: 5px;
-  padding: 10px;
+  padding: 15px;
   display: flex;
   flex-direction: column;
   gap: 10px;
   position: fixed;
   top: 150px;
-  left: 5px;
+  left: 20px; 
   height: 320px;
   width: 200px;
   overflow-y: auto;
   z-index: 20;
-  align-items: center;
-  justify-content: flex-start;
+  align-items: flex-start; 
 }
 
 .main-content-wrapper {
@@ -93,7 +92,6 @@ input {
   flex-direction: column;
   align-items: center;
 }
-
 
 .search-page {
   padding-top: 180px; 
@@ -114,25 +112,6 @@ input {
   align-self: center;
 }
 
-
-.filter-options {
-  background-color: #f4a6a6;
-  border-radius: 5px;
-  padding: 15px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  position: fixed;
-  top: 150px;
-  left: 20px; 
-  height: 320px;
-  width: 200px;
-  overflow-y: auto;
-  z-index: 20;
-  align-items: flex-start; 
-}
-
-
 .results-container {
   margin-left: 240px; 
   padding-right: 20px;
@@ -142,6 +121,8 @@ input {
   text-align: center;
   color: #333;
   margin-bottom: 20px;
+  margin-bottom: 20px;
+
 }
 
 .products-table {

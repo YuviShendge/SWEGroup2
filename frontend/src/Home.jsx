@@ -9,13 +9,11 @@ const Home = () => {
   return (
     <div>
       <header>
-        <div className="search-container">
-          <span className="search-icon">🔍</span>
-          <input type="text" placeholder="Search" />
-        </div>
         <Link to="/search" className="korean">Filter</Link>
         <Link to="/products" className="products">Products</Link>
+        <Link to="/shop" className="login">Shop</Link>
         <Link to="/login" className="login">Register/Login</Link>
+
       </header>
 
       <div className="pinkbg"></div>

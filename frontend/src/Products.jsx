@@ -1,7 +1,7 @@
 import React from "react";
 import {useEffect, useState} from "react";
 import { Link } from "react-router-dom"; // Import Link from react-router-dom
-import "./welcome_style.css";
+import "./product.css";
 import axios from "axios";
 
 function Products() {
