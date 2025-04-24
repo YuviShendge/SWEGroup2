@@ -1,0 +1,112 @@
+/* RESET + BASE STYLING */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  body {
+    background-color: #ffe5a4;
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* CART CONTAINER */
+  .cart-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding:10px;
+    max-width: 600px;
+    margin: -250px auto 50px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .cart-container h2 {
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* CART ITEM ROWS */
+  .cart-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .cart-item-name {
+    font-weight: bold;
+  }
+  
+  .cart-item-price {
+    color: #555;
+  }
+  
+  /* EMPTY CART MESSAGE */
+  .empty-cart {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+  }
+  
+  /* TOTAL PRICE SECTION */
+  .cart-total {
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 2px dashed #f7a5a5;
+    text-align: right;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  /* PURCHASE BUTTON */
+  .purchase-btn {
+    background-color: #f7a5a5;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .purchase-btn:hover {
+    background-color: #e57373;
+  }
+  
+  .purchase-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  /* SUCCESS MESSAGE */
+  .success-message {
+    color: green;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  /* RESPONSIVE DESIGN */
+  @media (max-width: 768px) {
+    .cart-container {
+      width: 90%;
+      margin-top: -200px;
+    }
+  
+    .cart-item {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .cart-item-price {
+      margin-top: 5px;
+    }
+  }
+  

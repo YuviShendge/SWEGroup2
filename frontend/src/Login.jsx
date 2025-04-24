@@ -1,97 +1,86 @@
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import './Login.css';  // Importing external CSS file for styling
 
-function Login() {
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [error, setError] = useState(null);
-    const [loading, setLoading] = useState(false);
-    const navigate = useNavigate();
+const Login = () => {
+  const navigate = useNavigate();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        
-        if (!email || !password) {
-            setError("All fields are required.");
-            return;
-        }
-    
-        setError(null);
-        setLoading(true);
-    
-        try {
-            const response = await axios.post("http://localhost:3002/login", { email, password });
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError('');
 
-            if (response.data.message === "Success") {
-                console.log(response.data);
-                navigate("/home");
-            } else {
-                setError(response.data.message || "Login failed.");
-            }
-        } catch (err) {
-            console.error(err);
-            setError("Invalid credentials. Please try again.");
-        } finally {
-            setLoading(false);
-        }
-    };
+    console.log('📤 Sending login request to backend...');
+    console.log('🧾 Payload:', { email, password });
 
-    return (
-        <div className="d-flex justify-content-center align-items-center bg-secondary vh-100">
-            <div className="bg-white p-4 rounded w-25 shadow">
-                <h2 className="text-center">Login</h2>
-                
-                {error && <div className="alert alert-danger">{error}</div>}
-                
-                <form onSubmit={handleSubmit}>
-                    <div className="mb-3">
-                        <label htmlFor="email">
-                            <strong>Email</strong>
-                        </label>
-                        <input
-                            type="email"
-                            placeholder="Enter Email"
-                            autoComplete="off"
-                            name="email"
-                            className="form-control rounded-0"
-                            id="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                        />
-                    </div>
-                    
-                    <div className="mb-3">
-                        <label htmlFor="password">
-                            <strong>Password</strong>
-                        </label>
-                        <input
-                            type="password"
-                            name="password"
-                            className="form-control rounded-0"
-                            id="password"
-                            placeholder="Enter Password"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                        />
-                    </div>
-                    
-                    <button 
-                        type="submit" 
-                        className="btn btn-primary w-100 rounded-0"
-                        disabled={loading}
-                    >
-                        {loading ? "Logging in..." : "Login"}
-                    </button>
-                </form>
-                
-                <p className="mt-3 text-center">Don't have an account?</p>
-                <Link to='/register' className="btn btn-light border w-100 rounded-0 text-decoration-none text-center">
-                    Register
-                </Link>
-            </div>
-        </div>
-    );
-}
+    try {
+      const response = await fetch('http://localhost:3002/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await response.json();
+      console.log('📥 Received response:', data);
+
+      if (response.ok) {
+        console.log('✅ Login successful! Redirecting to /home...');
+        navigate('/home');
+      } else {
+        console.warn('⚠️ Login failed:', data.error);
+        setError(data.error || 'Login failed');
+      }
+    } catch (err) {
+      console.error('🚨 Error during login request:', err);
+      setError('Something went wrong. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="login-container">
+      <h2 className="text-center">Login</h2>
+      <form onSubmit={handleLogin} className="login-form">
+        <label>Email:</label>
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+          className="input-field"
+        />
+        <br />
+
+        <label>Password:</label>
+        <input
+          type="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+          className="input-field"
+        />
+        <br />
+
+        <button type="submit" disabled={loading} className="submit-button">
+          {loading ? 'Logging in...' : 'Login'}
+        </button>
+
+        {error && <p className="error-text">{error}</p>}
+      </form>
+
+      <button
+        onClick={() => navigate('/register')}
+        className="create-account-button"
+      >
+        Create an Account
+      </button>
+    </div>
+  );
+};
 
 export default Login;

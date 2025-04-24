@@ -1,0 +1,136 @@
+body {
+    background-color: #ffe5a4; /* Light yellow */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+  }
+  
+  /* Header styling */
+  header {
+    background-color: #f4a6a6; /* Soft pink background */
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+  }
+  
+  header .search-containerW {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #fef9f4;
+    padding: 10px;
+    border-radius: 20px;
+    width: 300px;
+  }
+  
+  header input {
+    flex: 1;
+    padding: 8px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    background-color: #fef9f4;
+  }
+  
+  header .search-icon {
+    font-size: 18px;
+  }
+  
+  header .korean, .products, .login {
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+    font-size: 18px;
+    padding: 8px;
+    border-radius: 5px;
+  }
+  
+  header .korean:hover, header .products:hover, header .login:hover {
+    background-color: #ffcccc;
+  }
+  
+  /* Table container */
+  .pinkbg {
+    padding-top: 80px;
+    padding-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffe5a4; /* Light yellow */
+    min-height: 100vh;
+  }
+  
+  .table {
+    width: 80%;
+    max-width: 1200px;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    border-collapse: collapse;
+  }
+  
+  .table th {
+    background-color: #f4a6a6;
+    padding: 12px;
+    text-align: left;
+  }
+  
+  .table td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .table tr:nth-child(even) {
+    background-color: #fef9f4;
+  }
+  
+  .table tr:hover {
+    background-color: #ffcccc;
+  }
+  
+  /* Image styling */
+  .table img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+  
+  /* No results message */
+  .no-results {
+    text-align: center;
+    padding: 20px;
+    color: #666;
+  }
+  
+  /* Mobile responsiveness */
+  @media (max-width: 768px) {
+    header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    header .search-containerW {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  
+    .table {
+      width: 95%;
+    }
+  
+    .table img {
+      width: 50px;
+      height: 50px;
+    }
+  }
+  
