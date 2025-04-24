@@ -1,17 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./welcome_style.css";
+import "./home.css";
 import aadithiImg from "./images/aadithi.JPG";
 import patrickImg from "./images/patrick.jpg";
 
 const Home = () => {
   // Retrieve the email from localStorage
-  const email = localStorage.getItem("email") || "Guest";  // Default to "Guest" if not logged in
-
   return (
     <div>
       <header>
-        <div className="search-containerW">
+        <div className="search-container">
           <span className="search-icon">🔍</span>
           <input type="text" placeholder="Search" />
         </div>

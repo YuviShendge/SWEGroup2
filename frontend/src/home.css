@@ -1,0 +1,230 @@
+/* CSS VARIABLES FOR EASY CUSTOMIZATION */
+:root {
+    --yellow: #ffe5a4;
+    --pink: #f7a5a5;
+    --text: #333;
+    --white-translucent: rgba(255, 255, 255, 0.7);
+  }
+  
+  /* GENERAL RESET */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* FONT SMOOTHING */
+  body {
+    background-color: var(--yellow);
+    text-align: center;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* HEADER STYLING */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    position: relative;
+    z-index: 2;
+    background-color: rgba(255, 229, 164, 0.5);
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  /* SEARCH BAR */
+  .search-container {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 10px 20px;
+    border-radius: 30px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    width: 200px;
+  }
+  
+  .search-icon {
+    font-size: 18px;
+    margin-right: 5px;
+    z-index: 1;
+  }
+  
+  input {
+    border: none;
+    outline: none;
+    font-size: 16px;
+    background: transparent;
+    width: 100%;
+  }
+  
+  input:focus {
+    outline: 2px solid var(--pink);
+    background-color: #fff8f0;
+  }
+  
+  /* NAVIGATION LINKS */
+  .login,
+  .products,
+  .korean {
+    font-size: 16px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    z-index: 1;
+  }
+  
+  a:focus {
+    outline: 2px dashed var(--pink);
+  }
+  
+  /* NAV LOGO */
+  .nav-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  .home-link {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* WAVY BACKGROUND */
+  .pinkbg {
+    position: relative;
+    background: var(--pink);
+    top: 0px;
+    height: 400px;
+    border-radius: 0;
+    z-index: 0;
+  }
+  
+  /* YELLOW CIRCLES */
+  .yellow_circ1,
+  .yellow_circ2,
+  .yellow_circ3,
+  .yellow_circ4,
+  .yellow_circ5,
+  .yellow_circ6,
+  .yellow_circ7,
+  .yellow_circ8,
+  .yellow_circ9 {
+    position: absolute;
+    top: -75px;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: var(--yellow);
+    z-index: 0;
+  }
+  
+  .yellow_circ1 { transform: translateX(-50%); }
+  .yellow_circ2 { transform: translateX(75px); }
+  .yellow_circ3 { transform: translateX(250px); }
+  .yellow_circ4 { transform: translateX(425px); }
+  .yellow_circ5 { transform: translateX(-275px); }
+  .yellow_circ6 { transform: translateX(-425px); }
+  .yellow_circ7 { transform: translateX(-600px); }
+  .yellow_circ8 { transform: translateX(600px); }
+  .yellow_circ9 { transform: translateX(-775px); }
+  
+  /* IMAGE & TEXT LAYOUT */
+  .image-and-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: -300px auto 50px auto;
+    padding: 20px;
+    gap: 40px;
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* TEXT BOX */
+  .text-box {
+    flex: 1 1 400px;
+    text-align: left;
+    padding: 20px;
+    background-color: var(--white-translucent);
+    border-radius: 15px;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .text-box h2 {
+    margin-bottom: 15px;
+    color: var(--text);
+  }
+  
+  /* IMAGE CONTAINER */
+  .image-container {
+    flex: 1 1 400px;
+    text-align: center;
+  }
+  
+  /* MAIN IMAGE */
+  .main-image {
+    width: 100%;
+    max-width: 450px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 10px #000000;
+  }
+  
+  /* PATRICK FRAME */
+  .slay-frame {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+  }
+  
+  .logo {
+    width: 100px;
+    border-radius: 15px;
+    box-shadow: 5px 5px 10px #000000;
+  }
+  
+  /* RESPONSIVE DESIGN */
+  @media (max-width: 768px) {
+    header {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .search-container {
+      width: 100%;
+      max-width: 300px;
+    }
+  
+    .image-and-text {
+      margin-top: -200px;
+      padding: 10px;
+    }
+  
+    .text-box,
+    .image-container {
+      flex: 1 1 100%;
+    }
+  
+    .main-image {
+      max-width: 100%;
+    }
+  
+    .slay-frame {
+      top: 5px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+  
